@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
     protected $fillable = [
+        'category_id',
         'name',
         'description',
         'price',
-        'quantity',
+        'stock',
         'image',
         'is_active',
     ];
@@ -18,9 +20,9 @@ class Product extends Model
     {
         return $this->hasMany(Order::class);
     }
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
     public function orderItems()
     {

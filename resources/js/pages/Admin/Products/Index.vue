@@ -106,6 +106,7 @@ function deleteProduct(id) {
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Name</th>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Price</th>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Category</th>
+                                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Stock</th>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-24">Status</th>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-24">Actions</th>
                             </tr>
@@ -116,6 +117,7 @@ function deleteProduct(id) {
                                 <td class="px-4 py-2 whitespace-nowrap text-sm">{{ product.name }}</td>
                                 <td class="px-4 py-2 whitespace-nowrap text-sm">{{ product.price }}</td>
                                 <td class="px-4 py-2 whitespace-nowrap text-sm">{{ product.category?.name }}</td>
+                                <td class="px-4 py-2 whitespace-nowrap text-sm">{{ product.stock }}</td>
                                 <td class="px-4 py-2 whitespace-nowrap">
                                     <span
                                         :class="[
