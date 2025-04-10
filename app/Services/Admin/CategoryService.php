@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Admin;
 
 use App\Models\Category;
-use App\Repositories\CategoryRepository;
+use App\Repositories\Admin\CategoryRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class CategoryService

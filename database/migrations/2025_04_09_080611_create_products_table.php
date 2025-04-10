@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name', 100);
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
-            $table->integer('stock_quantity');
-            $table->string('image')->nullable();
+            $table->integer('stock');
+            $table->longText('image')->nullable();
             $table->string('is_active', 1)->default('Y');
             $table->timestamps();
         });

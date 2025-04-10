@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CategoryRequest;
-use App\Models\Category;
-use App\Services\CategoryService;
 use Exception;
+use Inertia\Inertia;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Inertia\Inertia;
+use App\Http\Controllers\Controller;
+use App\Services\Admin\CategoryService;
+use App\Http\Requests\Admin\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -25,7 +26,7 @@ class CategoryController extends Controller
             $filters = $request->only('search');
             $categories = $this->categoryService->getAllCategories($filters);
 
-            return Inertia::render('Categories/Index', [
+            return Inertia::render('Admin/Categories/Index', [
                 'categories' => $categories,
                 'filters' => $filters,
             ]);
@@ -38,7 +39,7 @@ class CategoryController extends Controller
     public function create()
     {
         try {
-            return Inertia::render('Categories/Create');
+            return Inertia::render('Admin/Categories/Create');
         } catch (Exception $e) {
             Log::error('Error loading category create form: ' . $e->getMessage());
             return redirect()->route('categories.index');
@@ -61,7 +62,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         try {
-            return Inertia::render('Categories/Edit', [
+            return Inertia::render('Admin/Categories/Edit', [
                 'category' => $category
             ]);
         } catch (Exception $e) {
